@@ -128,12 +128,13 @@ def main():
             for line in lines:
                 tokens.extend(line.split(' '))
 
-            startStatement = parse_statements(tokens, out)[0]
+            startStatements = parse_statements(tokens, out)
 
-            try:
-                startStatement.exec()
-            except:
-                pass
+            for startStatement in startStatements:
+                try:
+                    startStatement.exec()
+                except:
+                    pass
 
             out = ''.join(out)
 
