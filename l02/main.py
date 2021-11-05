@@ -3,7 +3,7 @@ import os
 import itertools
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-indir = 'level1'
+indir = 'level2'
 output_file = os.path.join(dir_path, 'out')
 
 inputs = [os.path.join(dir_path, indir, indir + f'_{x}.in')  for x in range(1, 6)]
@@ -15,7 +15,10 @@ outputs = [os.path.join(dir_path, output_file, indir + f'_{x}.out')  for x in ra
 stack = []
 
 def main():
+    print(inputs)
     print(outputs)
+
+    return 0
 
     for index, input_file in enumerate(inputs):
         out = []
