@@ -70,13 +70,12 @@ class IfElse(Statement):
 
     def exec(self, output, variables):
         if self.condition in variables:
-            var = variables[self.condition]
-            if var.value != 'true' and var.value != 'false':
-                output.clear()
-                output += ["ERROR"]
-                raise EnvironmentError("ERROR")
-            else:
-                self.condition = var.value
+            self.condition = variables[self.condition].value
+
+        if self.condition != 'true' and self.condition != 'false':
+            output.clear()
+            output += ["ERROR"]
+            raise EnvironmentError("ERROR")
 
         if self.condition == 'true':
             for statement in self.if_statements:
